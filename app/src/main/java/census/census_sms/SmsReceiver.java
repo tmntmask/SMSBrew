@@ -36,6 +36,7 @@ public class SmsReceiver extends BroadcastReceiver {
                 String message = sb.toString();
                 // pop up message
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, sender, Toast.LENGTH_LONG).show()
                 // prevent any other broadcast receivers from receiving broadcast
                 abortBroadcast();
             }
