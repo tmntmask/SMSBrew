@@ -37,7 +37,7 @@ public class SmsReceiver extends BroadcastReceiver {
                 // pop up message
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 // prevent any other broadcast receivers from receiving broadcast
-                // abortBroadcast();
+                abortBroadcast();
             }
         }
     }
