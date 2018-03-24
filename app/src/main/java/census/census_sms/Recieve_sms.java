@@ -10,11 +10,5 @@ public class Recieve_sms extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recieve_sms);
-
-
-        SmsReceiver r = new SmsReceiver();
-        Intent i = new Intent(this, Recieve_sms.class)
-        r.onReceive(getApplicationContext(), i);
-        startActivity(i);
     }
 }
