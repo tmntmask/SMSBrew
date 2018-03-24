@@ -3,13 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Census_SMS.iml" filepath="$PROJECT_DIR$/Census_SMS.iml" />
-<<<<<<< HEAD
-      <module fileurl="file://$PROJECT_DIR$/SMSBrew.iml" filepath="$PROJECT_DIR$/SMSBrew.iml" />
-=======
->>>>>>> a45bb6c233ba7ae28118e82608d31fb1c8378cb2
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.iml" filepath="$PROJECT_DIR$/mysql-connector-java-5.1.46/mysql-connector-java-5.1.46.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mysql-connector-java-5.1.46-bin/mysql-connector-java-5.1.46-bin.iml" filepath="$PROJECT_DIR$/mysql-connector-java-5.1.46-bin/mysql-connector-java-5.1.46-bin.iml" />
     </modules>
   </component>
 </project>

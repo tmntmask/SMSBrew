@@ -1,5 +1,7 @@
 package census.census_sms;
 
+import android.database.SQLException;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -16,14 +18,18 @@ public class DatabaseConnector {
 
     static public void main(String[] args) throws Exception {
         try {
-                Class.forName("com.mysql.jdbc.Driver").newInstance();
-            } catch(ClassNotFoundException e) {
-                System.err.println("Unable to load MySQL driver");
-            }
+            Class.forName("com.mysql.jdbc.Driver").newInstance();
+        } catch(ClassNotFoundException e) {
+            System.err.println("Unable to load MySQL driver");
+        }
         String jdbcUrl = "jdbc:mysql://128.199.224.104:3306/census";
-        Connection con = DriverManager.getConnection(jdbcUrl, username, password);
-        System.out.println("Connected!");
-        con.close();
+        try {
+            Connection con = DriverManager.getConnection(jdbcUrl, username, password);
+            System.out.println("Connected!");
+            con.close();
+        } catch(SQLException e) {
+            System.err.println("Error connecting");
+        }
     }
 
 }
