@@ -23,15 +23,15 @@ public class DatabaseConnector {
         System.out.println("Trying to connect");
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("Got driver");
+           // System.out.println("Got driver");
         } catch(ClassNotFoundException e) {
-            System.err.println("Unable to load MySQL driver");
-            System.out.println("Didn't get driver!");
+           // System.err.println("Unable to load MySQL driver");
+           // System.out.println("Didn't get driver!");
         }
-        String jdbcUrl = "jdbc:mysql://128.199.224.104:3306/census?autoReconnect=true&useSSL=false";
-        System.out.println(jdbcUrl);
+        //String jdbcUrl = "jdbc:mysql://128.199.224.104:3306/census?autoReconnect=true&useSSL=false";
+        //System.out.println(jdbcUrl);
         try {
-            Connection con = DriverManager.getConnection(jdbcUrl, username, password);
+            Connection con = DriverManager.getConnection("jdbc:mysql://128.199.224.104:3306/census", "codebrew", "codebrew");
             System.out.println("Connected!");
             con.close();
             return 0;
