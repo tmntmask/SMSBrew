@@ -12,17 +12,16 @@ public class DatabaseConnector {
     private static String username = "codebrew";
     private static String password = "codebrew";
 
-    static {
-        try {
-            Class.forName("com.mysql.jdbc.census");
-        } catch(ClassNotFoundException e) {
-            System.err.println("Unable to load MySQL census");
-        }
-    }
+
 
     static public void main(String[] args) throws Exception {
-        String jdbcUrl = "jdbc:mysql://localhost/sample?user="+username+"&password="+password;
-        Connection con = DriverManager.getConnection(jdbcUrl);
+        try {
+                Class.forName("com.mysql.jdbc.Driver").newInstance();
+            } catch(ClassNotFoundException e) {
+                System.err.println("Unable to load MySQL driver");
+            }
+        String jdbcUrl = "jdbc:mysql://128.199.224.104:3306/census";
+        Connection con = DriverManager.getConnection(jdbcUrl, username, password);
         System.out.println("Connected!");
         con.close();
     }
