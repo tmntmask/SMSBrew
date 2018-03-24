@@ -34,6 +34,17 @@ public class SmsReceiver extends BroadcastReceiver {
                 }
                 String sender = messages[0].getOriginatingAddress();
                 String message = sb.toString();
+                CensusData censusData = new CensusData(sender, message);
+                DatabaseConnector dbcon = new DatabaseConnector();
+                int success;
+                try {
+                    dbcon.connectToDB();
+                    System.out.println("Probably connected");
+                    //Toast.makeText(context, success, Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    Toast.makeText(context, "Fucking fucked it mate", Toast.LENGTH_LONG).show();
+                }
                 // pop up message
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 Toast.makeText(context, sender, Toast.LENGTH_LONG).show();

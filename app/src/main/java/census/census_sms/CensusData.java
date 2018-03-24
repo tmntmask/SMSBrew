@@ -5,10 +5,10 @@ package census.census_sms;
  */
 
 public class CensusData {
-    private int phoneNumber;
+    private String phoneNumber;
     private String msg;
 
-    public CensusData(int phoneNumber, String msg) {
+    public CensusData(String phoneNumber, String msg) {
         this.phoneNumber = phoneNumber;
         this.msg = msg;
     }
