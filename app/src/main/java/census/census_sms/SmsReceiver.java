@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.telephony.SmsMessage;
+import android.widget.Toast;
 
 /**
  * Created by spham on 24/03/18.
@@ -34,7 +35,7 @@ public class SmsReceiver extends BroadcastReceiver {
                 String sender = messages[0].getOriginatingAddress();
                 String message = sb.toString();
                 // pop up message
-                //Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
                 // prevent any other broadcast receivers from receiving broadcast
                 // abortBroadcast();
             }
