@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.telephony.SmsMessage;
 import android.widget.Toast;
 
+import java.util.HashMap;
+
 /**
  * Created by spham on 24/03/18.
  */
@@ -34,22 +36,27 @@ public class SmsReceiver extends BroadcastReceiver {
                 }
                 String sender = messages[0].getOriginatingAddress();
                 String message = sb.toString();
-                CensusData censusData = new CensusData(sender, message);
-                DatabaseConnector dbcon = new DatabaseConnector();
-                int success;
-                try {
-                    dbcon.connectToDB();
-                    System.out.println("Probably connected");
-                    //Toast.makeText(context, success, Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Toast.makeText(context, "Fucking fucked it mate", Toast.LENGTH_LONG).show();
-                }
+
                 // pop up message
                 Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
-                Toast.makeText(context, sender, Toast.LENGTH_LONG).show();
+                Toast.makeText(context, sender, Toast.LENGTH_SHORT).show();
+                String[] data = message.split("\n");
+                String gender = data[0];
+                String dob = data[1];
+                String region = data[2];
+                String citizenship = data[3];
+
+                HashMap<String, String> censusVals = new HashMap<String, String>();
+                censusVals.put("Gender", gender);
+                censusVals.put("DOB", dob);
+                censusVals.put("Region", region);
+                censusVals.put("Citizenship", citizenship);
+
+                new SQLOperation(context).execute(censusVals);
+
                 // prevent any other broadcast receivers from receiving broadcast
                 abortBroadcast();
+
             }
         }
     }
